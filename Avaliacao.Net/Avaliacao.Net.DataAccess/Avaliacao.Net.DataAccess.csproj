@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClienteDAO.cs" />
-    <Compile Include="PedidoDAO.cs" />
+    <Compile Include="ClienteDAOSQLServer.cs" />
+    <Compile Include="Interfaces\IClienteDAO.cs" />
+    <Compile Include="Interfaces\IPedidoDAO.cs" />
+    <Compile Include="PedidoDAOSQLServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

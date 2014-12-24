@@ -1,4 +1,4 @@
-﻿using Avaliacao.Net.DataAccess;
+﻿using Avaliacao.Net.DataAccess.Interfaces;
 using Avaliacao.Net.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,9 +10,9 @@ namespace Avaliacao.Net.BusinessLogic
 {
     public class ClienteBLL
     {
-        private ClienteDAO clienteDAO;
+        private IClienteDAO clienteDAO;
 
-        public ClienteBLL(ClienteDAO clienteDAO)
+        public ClienteBLL(IClienteDAO clienteDAO)
         {
             if (clienteDAO == null)
             {

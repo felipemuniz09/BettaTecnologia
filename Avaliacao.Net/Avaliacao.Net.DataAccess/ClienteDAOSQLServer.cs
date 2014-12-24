@@ -1,4 +1,5 @@
-﻿using Avaliacao.Net.Entities;
+﻿using Avaliacao.Net.DataAccess.Interfaces;
+using Avaliacao.Net.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,24 +8,24 @@ using System.Threading.Tasks;
 
 namespace Avaliacao.Net.DataAccess
 {
-    public class PedidoDAO
+    public class ClienteDAOSQLServer : IClienteDAO
     {
-        public List<PedidoVO> BuscarPedidos(string nomeCliente, DateTime dataPedido)
+        public List<ClienteVO> BuscarClientes(string nome, TipoCliente tipoCliente)
         {
             throw new NotImplementedException();
         }
 
-        public void AtualizarPedido(PedidoVO pedido)
+        public void AtualizarCliente(ClienteVO cliente)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoverPedido(int idPedido)
+        public void RemoverCliente(int idCliente)
         {
             throw new NotImplementedException();
         }
 
-        public void InserirPedido(PedidoVO pedido)
+        public void InserirCliente(ClienteVO cliente)
         {
             throw new NotImplementedException();
         }

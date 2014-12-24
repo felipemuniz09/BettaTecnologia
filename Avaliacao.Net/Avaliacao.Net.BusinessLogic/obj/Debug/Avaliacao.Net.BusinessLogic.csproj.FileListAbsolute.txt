@@ -1,0 +1,9 @@
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.BusinessLogic\bin\Debug\Avaliacao.Net.BusinessLogic.dll
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.BusinessLogic\bin\Debug\Avaliacao.Net.BusinessLogic.pdb
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.BusinessLogic\bin\Debug\Avaliacao.Net.DataAccess.dll
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.BusinessLogic\bin\Debug\Avaliacao.Net.Entities.dll
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.BusinessLogic\bin\Debug\Avaliacao.Net.DataAccess.pdb
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.BusinessLogic\bin\Debug\Avaliacao.Net.Entities.pdb
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.BusinessLogic\obj\Debug\Avaliacao.Net.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.BusinessLogic\obj\Debug\Avaliacao.Net.BusinessLogic.dll
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.BusinessLogic\obj\Debug\Avaliacao.Net.BusinessLogic.pdb

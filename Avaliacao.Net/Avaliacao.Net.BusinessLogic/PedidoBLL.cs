@@ -1,4 +1,4 @@
-﻿using Avaliacao.Net.DataAccess;
+﻿using Avaliacao.Net.DataAccess.Interfaces;
 using Avaliacao.Net.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,9 +10,9 @@ namespace Avaliacao.Net.BusinessLogic
 {
     public class PedidoBLL
     {
-        private PedidoDAO pedidoDAO;
+        private IPedidoDAO pedidoDAO;
 
-        public PedidoBLL(PedidoDAO pedidoDAO) 
+        public PedidoBLL(IPedidoDAO pedidoDAO) 
         {
             if (pedidoDAO == null)
             {
