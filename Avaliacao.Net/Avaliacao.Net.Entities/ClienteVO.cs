@@ -9,11 +9,20 @@ namespace Avaliacao.Net.Entities
     public class ClienteVO
     {
         private int id;
-        
+
+        public int Id 
+        {
+            get
+            {
+                return this.id;
+            }
+        }
         public string Email { get; set; }
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public TipoCliente Tipo { get; set; }
+
+        public ClienteVO() { }
 
         public ClienteVO(int id)
         {
