@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClienteDAOSQLServer.cs" />
+    <Compile Include="ConexaoSingleton.cs" />
     <Compile Include="Interfaces\IClienteDAO.cs" />
     <Compile Include="Interfaces\IPedidoDAO.cs" />
     <Compile Include="PedidoDAOSQLServer.cs" />

@@ -1,0 +1,1 @@
+C:\Users\muniz\Documents\Betta Tecnologia\Solucao\BD\BancoDadosSQLServer\BancoDadosSQLServer\bin\Debug\BancoDadosSQLServer.exe.config

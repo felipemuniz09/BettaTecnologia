@@ -8,7 +8,7 @@ namespace Avaliacao.Net.Entities
 {
     public enum TipoCliente
     {
-        Fisica,
-        Juridica
+        Fisica = 0,
+        Juridica = 1
     }
 }

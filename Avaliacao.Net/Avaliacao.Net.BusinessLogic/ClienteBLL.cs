@@ -22,7 +22,7 @@ namespace Avaliacao.Net.BusinessLogic
             this.clienteDAO = clienteDAO;
         }
 
-        public List<ClienteVO> BuscarClientes(string nome, TipoCliente tipoCliente)
+        public List<ClienteVO> BuscarClientes(string nome, TipoCliente? tipoCliente)
         {
             return this.clienteDAO.BuscarClientes(nome, tipoCliente);
         }

@@ -9,7 +9,7 @@ namespace Avaliacao.Net.DataAccess.Interfaces
 {
     public interface IClienteDAO
     {
-        List<ClienteVO> BuscarClientes(string nome, TipoCliente tipoCliente);
+        List<ClienteVO> BuscarClientes(string nome, TipoCliente? tipoCliente);
         void AtualizarCliente(ClienteVO cliente);
         void RemoverCliente(int idCliente);
         void InserirCliente(ClienteVO cliente);
