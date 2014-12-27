@@ -109,17 +109,98 @@ namespace Avaliacao.Net.DataAccess
 
         public void AtualizarPedido(PedidoVO pedido)
         {
-            throw new NotImplementedException();
+            // não atualiza data, cliente nem id
+            string updateTexto =
+                @"update
+                    PEDIDO
+                  set
+                    DESCRICAO_PEDIDO = @descricao,
+                    VALOR_PEDIDO = @valor
+                  where
+                    ID_PEDIDO = @idPedido";
+
+            SqlCommand updateComando = new SqlCommand(updateTexto, this.conexao);
+            updateComando.Parameters.AddWithValue("@descricao", pedido.Descricao);
+            updateComando.Parameters.AddWithValue("@valor", pedido.Valor);
+            updateComando.Parameters.AddWithValue("@idPedido", pedido.Id);
+
+            this.conexao.Open();
+            updateComando.Transaction = this.conexao.BeginTransaction();
+
+            try
+            {
+                updateComando.ExecuteNonQuery();
+
+                updateComando.Transaction.Commit();
+            }
+            catch
+            {
+                updateComando.Transaction.Rollback();
+            }
+            finally
+            {
+                this.conexao.Close();
+            }
         }
 
         public void RemoverPedido(int idPedido)
         {
-            throw new NotImplementedException();
+            string deleteTexto =
+                @"delete
+                    PEDIDO
+                  where
+                    ID_PEDIDO = @idPedido";
+
+            SqlCommand deleteComando = new SqlCommand(deleteTexto, this.conexao);
+            deleteComando.Parameters.AddWithValue("@idPedido", idPedido);
+
+            this.conexao.Open();
+            deleteComando.Transaction = this.conexao.BeginTransaction();
+
+            try
+            {
+                deleteComando.ExecuteNonQuery();
+
+                deleteComando.Transaction.Commit();
+            }
+            catch
+            {
+                deleteComando.Transaction.Rollback();
+            }
+            finally
+            {
+                this.conexao.Close();
+            }
         }
 
         public void InserirPedido(PedidoVO pedido)
         {
-            throw new NotImplementedException();
+            string insertTexto =
+                @"insert into PEDIDO(ID_CLIENTE, DESCRICAO_PEDIDO, VALOR_PEDIDO)
+                    values(@idCliente, @descricaoPedido, @valorPedido)";
+
+            SqlCommand insertComando = new SqlCommand(insertTexto, this.conexao);
+            insertComando.Parameters.AddWithValue("@idCliente", pedido.IdCliente);
+            insertComando.Parameters.AddWithValue("@descricaoPedido", pedido.Descricao);
+            insertComando.Parameters.AddWithValue("@valorPedido", pedido.Valor);
+
+            this.conexao.Open();
+            insertComando.Transaction = this.conexao.BeginTransaction();
+
+            try
+            {
+                insertComando.ExecuteNonQuery();
+
+                insertComando.Transaction.Commit();
+            }
+            catch
+            {
+                insertComando.Transaction.Rollback();
+            }
+            finally
+            {
+                this.conexao.Close();
+            }
         }
     }
 }

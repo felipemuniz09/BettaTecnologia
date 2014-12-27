@@ -13,12 +13,42 @@ namespace Avaliacao.Net.Entities
         private DateTime data;
 
         public string Descricao { get; set; }
+        
         public decimal Valor { get; set; }
+        
+        public int Id
+        {
+            get
+            {
+                return this.id;
+            }
+        }
 
+        public int IdCliente
+        {
+            get
+            {
+                return this.cliente.Id;
+            }
+        }
+
+        public DateTime Data
+        {
+            get
+            {
+                return this.data;
+            }
+        }
+    
         public PedidoVO(int id, DateTime data, ClienteVO cliente)
         {
             this.id = id;
             this.data = data;
+            this.cliente = cliente;
+        }
+
+        public PedidoVO(ClienteVO cliente)
+        {
             this.cliente = cliente;
         }
     }
