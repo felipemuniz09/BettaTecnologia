@@ -15,6 +15,29 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <style>
+        header {
+            background-image: url(Imagens/header-back.jpg);
+            position: fixed;
+            height: 150px;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        #embaixo {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        #direita {
+            position: relative;
+            right: 0;
+        }
+        #esquerda {
+            position: relative;
+            left: 0;
+        }
+    </style>
 </head>
 <body>
     <form runat="server">
@@ -39,7 +62,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <!--<div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -57,7 +80,25 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div>-->
+        <!--<div class="page-header" style="background-image: url(Imagens/header-back.jpg)">-->
+        <header>
+            <div id="embaixo">
+                <div style="width: 85%; float: left">
+                    <h1>Betta Cadastro</h1>
+                </div>
+
+                <div style="width: 15%; float: right;">
+                    <ul>
+                        <li><a href="." style="color: black">Quem somos</a></li>
+                        <li><a href="." style="color: black">Trabalhe conosco</a></li>
+                        <li><a href="." style="color: black">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>    
+        <!--</div>-->
+       <!--
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
@@ -65,7 +106,7 @@
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
             </footer>
-        </div>
+        </div>-->
 
     </form>
 </body>
