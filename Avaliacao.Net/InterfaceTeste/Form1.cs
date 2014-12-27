@@ -18,23 +18,26 @@ namespace InterfaceTeste
     {
 
         private ClienteBLL gerenciadorClientes;
+        private PedidoBLL gerenciadorPedidos;
 
         public Form1()
         {
             InitializeComponent();
             IClienteDAO clienteDAO = new ClienteDAOSQLServer(ConexaoSingleton.Conexao);
+            IPedidoDAO pedidoDAO = new PedidoDAOSQLServer(ConexaoSingleton.Conexao);
             this.gerenciadorClientes = new ClienteBLL(clienteDAO);
+            this.gerenciadorPedidos = new PedidoBLL(pedidoDAO);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ClienteVO cliente = new ClienteVO();
+            /*ClienteVO cliente = new ClienteVO();
             cliente.Email = "benedito@gmail.com";
             cliente.Nome = "Benedito Soares";
             cliente.Telefone = "(12) 345 678 901";
-            cliente.Tipo = TipoCliente.Fisica;
+            cliente.Tipo = TipoCliente.Fisica;*/
 
-            this.gerenciadorClientes.CadastrarCliente(cliente);
+            this.gerenciadorPedidos.BuscarPedidos(1, Convert.ToDateTime("23/12/2014"));
         }
 
     }

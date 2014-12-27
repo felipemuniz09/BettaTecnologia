@@ -74,18 +74,26 @@ namespace Avaliacao.Net.DataAccess
                         clientes.Add(cliente);
                     }
                 }
+
+                if (clientesReader != null)
+                {
+                    clientesReader.Close();
+                }
+
+                selectComando.Transaction.Commit();
             }
             catch
             {
+                // caso não tenha fechado no try
+                if (clientesReader != null)
+                {
+                    clientesReader.Close();
+                }
+
                 selectComando.Transaction.Rollback();
             }
             finally
             {
-                if(clientesReader != null)
-                {
-                    clientesReader.Close();
-                }
-                selectComando.Transaction.Commit();
                 this.conexao.Close();
             }
 

@@ -8,10 +8,18 @@ namespace Avaliacao.Net.Entities
 {
     public class PedidoVO
     {
+        private int id;
         private ClienteVO cliente;
         private DateTime data;
-        private string descricao;
-        private int id;
-        private decimal valor;
+
+        public string Descricao { get; set; }
+        public decimal Valor { get; set; }
+
+        public PedidoVO(int id, DateTime data, ClienteVO cliente)
+        {
+            this.id = id;
+            this.data = data;
+            this.cliente = cliente;
+        }
     }
 }
