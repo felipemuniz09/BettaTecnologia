@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
+    <div class="jumbotron" style="width: 150%; float: left">
         
         <h2>Bem vindo ao Betta Cadastro!</h2>
 

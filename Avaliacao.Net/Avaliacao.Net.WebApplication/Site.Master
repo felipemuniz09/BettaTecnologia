@@ -17,7 +17,7 @@
 
     <style>
         .campo {
-        height:30px;
+        min-height:30px;
         padding-top: 25px;
         }
         .campo-label {
@@ -53,11 +53,6 @@
     <script type="text/javascript">
         function setaAtivo()
         {
-            /*var elem = document.getElementById("teste");   // Get the first <h1> element in the document
-            var att = document.createAttribute("class");       // Create a "class" attribute
-            att.value = "active";                           // Set the value of the class attribute
-            elem.setAttributeNode(att);*/
-
             var url = window.location;
             $('.navbar .nav').find('.active').removeClass('active');
             $('.navbar .nav li a').each(function () {
@@ -65,8 +60,6 @@
                     $(this).parentsUntil("dropdown-menu").addClass('active');
                 }
             });
-
-
         }
 
         window.onload = setaAtivo;
@@ -140,8 +133,8 @@
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Pedidos<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Cadastrar</a></li>
-                    <li><a href="#">Consultar</a></li>
+                    <li><a href="CadastrarPedidos">Cadastrar</a></li>
+                    <li><a href="ConsultarPedidos">Consultar</a></li>
                   </ul>
                 </li>
             </ul>
@@ -149,7 +142,7 @@
     </nav>
         </div>
        
-        <div class="container body-content" style="position:absolute; top:200px">
+        <div class="container body-content" style="position:absolute; top:200px; width:30%; float:left">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
