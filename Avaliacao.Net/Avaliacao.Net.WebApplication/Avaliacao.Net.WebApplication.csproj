@@ -99,6 +99,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="CadastroClientes.aspx" />
+    <Content Include="ConsultarClientes.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -165,6 +167,20 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CadastroClientes.aspx.cs">
+      <DependentUpon>CadastroClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CadastroClientes.aspx.designer.cs">
+      <DependentUpon>CadastroClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarClientes.aspx.cs">
+      <DependentUpon>ConsultarClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarClientes.aspx.designer.cs">
+      <DependentUpon>ConsultarClientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
