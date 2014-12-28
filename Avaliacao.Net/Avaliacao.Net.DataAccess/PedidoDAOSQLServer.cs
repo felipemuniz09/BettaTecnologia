@@ -23,7 +23,7 @@ namespace Avaliacao.Net.DataAccess
             this.conexao = conexao;
         }
 
-        public List<PedidoVO> BuscarPedidos(int? idCliente, DateTime? dataPedido)
+        public List<PedidoVO> BuscarPedidos(int? idCliente, DateTime? dtInicialPedido, DateTime? dtFinalPedido)
         {
             string selectTexto =
                 @"select
@@ -32,7 +32,7 @@ namespace Avaliacao.Net.DataAccess
                     PEDIDO
                   ";
 
-            if ((idCliente != null) || (dataPedido != null))
+            if ((idCliente != null) || (dtInicialPedido != null) || (dtInicialPedido != null))
             {
                 selectTexto += 
                     @"where
@@ -47,14 +47,24 @@ namespace Avaliacao.Net.DataAccess
                 parametros.Add(new SqlParameter("@idCliente", idCliente.Value));
             }
 
-            if(dataPedido.HasValue)
+            if (dtInicialPedido.HasValue)
             {
                 // usando funções para pegar apenas a data (desprezar a hora)
                 // e garantir que ambas datas estão no mesmo formato
                 selectTexto += 
-                    @"and CONVERT(NVARCHAR(10), CAST(CAST(DATA_PEDIDO AS DATE) AS DATETIME), 103) = 
-                        CONVERT(NVARCHAR(10), CAST(CAST(@dataPedido AS DATE) AS DATETIME), 103)";
-                parametros.Add(new SqlParameter("@dataPedido", dataPedido.Value));
+                    @"and CONVERT(NVARCHAR(10), CAST(CAST(DATA_PEDIDO AS DATE) AS DATETIME), 103) >= 
+                        CONVERT(NVARCHAR(10), CAST(CAST(@dtInicialPedido AS DATE) AS DATETIME), 103)";
+                parametros.Add(new SqlParameter("@dataPedido", dtInicialPedido.Value));
+            }
+
+            if (dtFinalPedido.HasValue)
+            {
+                // usando funções para pegar apenas a data (desprezar a hora)
+                // e garantir que ambas datas estão no mesmo formato
+                selectTexto +=
+                    @"and CONVERT(NVARCHAR(10), CAST(CAST(DATA_PEDIDO AS DATE) AS DATETIME), 103) <= 
+                        CONVERT(NVARCHAR(10), CAST(CAST(@dtFinalPedido AS DATE) AS DATETIME), 103)";
+                parametros.Add(new SqlParameter("@dataPedido", dtFinalPedido.Value));
             }
 
             SqlCommand selectComando = new SqlCommand(selectTexto, this.conexao);

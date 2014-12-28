@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Avaliacao.Net.BusinessLogic;
+using Avaliacao.Net.DataAccess;
+using Avaliacao.Net.DataAccess.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +12,11 @@ namespace Avaliacao.Net.WebApplication
 {
     public partial class SiteMaster : MasterPage
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
         }
-    }
+
+   }
 }
