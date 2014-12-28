@@ -4,25 +4,25 @@
     <div class="form-group campo">
         <label class="control-label campo-label">Cliente:</label>
         <div class="campo-input"> 
-          <select class="form-control" id="sel1">
+          <select class="form-control" id="clienteSel" runat="server">
           </select>
         </div>
     </div>
     <div class="form-group campo">
         <label class="control-label campo-label">Valor:</label>
         <div class="campo-input"> 
-          <input type="text" class="form-control" id="valorPedido">
+          <input type="text" class="form-control" id="valorTxt" runat="server">
         </div>
     </div>
     <div class="form-group campo">
         <label class="control-label campo-label">Descrição:</label>
         <div class="campo-input"> 
-          <textarea rows="3" cols="50" class="form-control"></textarea>
+          <textarea rows="3" cols="50" class="form-control" id="descricaoTxt" runat="server"></textarea>
         </div>
     </div>
     <div class="form-group" style="padding-top: 80px"> 
         <div class="campo-input">
-          <button type="submit" class="btn btn-default">Cadastrar</button>
+          <button type="submit" class="btn btn-default"  runat="server">Cadastrar</button>
         </div>
     </div>
 

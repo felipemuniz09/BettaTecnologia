@@ -27,6 +27,11 @@ namespace Avaliacao.Net.BusinessLogic
             return this.clienteDAO.BuscarClientes(nome, tipoCliente);
         }
 
+        public List<ClienteVO> BuscarClientes()
+        {
+            return this.clienteDAO.BuscarClientes(null, null);
+        }
+
         public void EditarCliente(ClienteVO cliente)
         {
             this.clienteDAO.AtualizarCliente(cliente);
