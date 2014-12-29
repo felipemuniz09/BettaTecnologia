@@ -10,24 +10,27 @@
 namespace Avaliacao.Net.WebApplication {
     
     
-    public partial class ConsultarClientes {
+    public partial class ExibirClientes {
         
         /// <summary>
-        /// nomeCliente control.
+        /// clientesTb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nomeCliente;
+        protected global::System.Web.UI.HtmlControls.HtmlTable clientesTb;
         
         /// <summary>
-        /// tpClienteSel control.
+        /// PreviousPage property.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Auto-generated property.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect tpClienteSel;
+        public new Avaliacao.Net.WebApplication.ConsultarClientes PreviousPage {
+            get {
+                return ((Avaliacao.Net.WebApplication.ConsultarClientes)(base.PreviousPage));
+            }
+        }
     }
 }

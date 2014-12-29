@@ -4,6 +4,9 @@ C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebA
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Antlr3.Runtime.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\AspNet.ScriptManager.bootstrap.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.BusinessLogic.dll
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.DataAccess.dll
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.Entities.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Microsoft.AspNet.FriendlyUrls.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Microsoft.ScriptManager.MSAjax.dll
@@ -12,6 +15,9 @@ C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebA
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Newtonsoft.Json.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\System.Web.Optimization.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\WebGrease.dll
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.BusinessLogic.pdb
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.DataAccess.pdb
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.Entities.pdb
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\System.Web.Optimization.xml
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Antlr3.Runtime.pdb
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Newtonsoft.Json.xml
@@ -19,9 +25,3 @@ C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebA
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\obj\Debug\Avaliacao.Net.WebApplication.csprojResolveAssemblyReference.cache
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\obj\Debug\Avaliacao.Net.WebApplication.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\obj\Debug\Avaliacao.Net.WebApplication.pdb
-C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.BusinessLogic.dll
-C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.DataAccess.dll
-C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.Entities.dll
-C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.BusinessLogic.pdb
-C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.DataAccess.pdb
-C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.WebApplication\bin\Avaliacao.Net.Entities.pdb

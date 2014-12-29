@@ -1,7 +1,7 @@
-C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.DataAccess\obj\Debug\Avaliacao.Net.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.DataAccess\bin\Debug\Avaliacao.Net.DataAccess.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.DataAccess\bin\Debug\Avaliacao.Net.DataAccess.pdb
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.DataAccess\bin\Debug\Avaliacao.Net.Entities.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.DataAccess\bin\Debug\Avaliacao.Net.Entities.pdb
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.DataAccess\obj\Debug\Avaliacao.Net.DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.DataAccess\obj\Debug\Avaliacao.Net.DataAccess.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.DataAccess\obj\Debug\Avaliacao.Net.DataAccess.pdb
