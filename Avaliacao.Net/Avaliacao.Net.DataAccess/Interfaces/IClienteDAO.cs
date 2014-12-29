@@ -10,6 +10,7 @@ namespace Avaliacao.Net.DataAccess.Interfaces
     public interface IClienteDAO
     {
         List<ClienteVO> BuscarClientes(string nome, TipoCliente? tipoCliente);
+        ClienteVO BuscarCliente(int id);
         void AtualizarCliente(ClienteVO cliente);
         void RemoverCliente(int idCliente);
         void InserirCliente(ClienteVO cliente);

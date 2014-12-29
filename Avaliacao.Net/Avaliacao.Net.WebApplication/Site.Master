@@ -150,9 +150,6 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer style="position:fixed; bottom:0">
-                <p>&copy; <%: DateTime.Now.Year %> - Betta Tecnologia</p>
-            </footer>
         </div>
 
     </form>

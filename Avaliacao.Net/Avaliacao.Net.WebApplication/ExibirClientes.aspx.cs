@@ -13,15 +13,23 @@ namespace Avaliacao.Net.WebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<ClienteVO> clientes = PreviousPage.Clientes;
+            if (PreviousPage != null)
+            {
+                this.Session["clientes"] = PreviousPage.Clientes;
+            }
 
-            foreach(ClienteVO cliente in clientes)
+            List<ClienteVO> clientes = ((IList<ClienteVO>)this.Session["clientes"]).ToList();
+
+            foreach (ClienteVO cliente in clientes)
             {
                 HtmlTableRow tbRow = new HtmlTableRow();
 
+                HtmlTableCell tbCell;
+                
                 //ID, Nome, Email, Telefone, Tipo de Cliente
 
-                HtmlTableCell tbCell = new HtmlTableCell();
+                tbCell = new HtmlTableCell();
+                tbCell.ID = "ID";
                 tbCell.InnerText = cliente.Id.ToString();
                 tbRow.Controls.Add(tbCell);
 
@@ -38,7 +46,7 @@ namespace Avaliacao.Net.WebApplication
                 tbRow.Controls.Add(tbCell);
 
                 tbCell = new HtmlTableCell();
-                if(cliente.Tipo.Equals(TipoCliente.Fisica))
+                if (cliente.Tipo.Equals(TipoCliente.Fisica))
                 {
                     tbCell.InnerText = "Pessoa Física";
                 }
@@ -48,8 +56,20 @@ namespace Avaliacao.Net.WebApplication
                 }
                 tbRow.Controls.Add(tbCell);
 
+                tbCell = new HtmlTableCell();
+                HtmlAnchor link = new HtmlAnchor();
+                link.Attributes.Add("href", "Detalhes.aspx?id=" + cliente.Id);
+                link.InnerText = "detalhes";
+                tbCell.Controls.Add(link);
+                tbRow.Controls.Add(tbCell);
+
                 this.clientesTb.Rows.Add(tbRow);
             }
+        }
+
+        protected void Remover_ServerClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

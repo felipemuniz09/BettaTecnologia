@@ -13,6 +13,17 @@ namespace Avaliacao.Net.DataAccess
     {
         private SqlConnection conexao;
 
+        private ClienteVO CriaCliente(SqlDataReader clienteReader)
+        {
+            ClienteVO cliente = new ClienteVO(Convert.ToInt32(clienteReader["ID_CLIENTE"]));
+            cliente.Email = clienteReader["EMAIL_CLIENTE"].ToString();
+            cliente.Nome = clienteReader["NOME_CLIENTE"].ToString();
+            cliente.Telefone = clienteReader["TELEFONE_CLIENTE"].ToString();
+            cliente.Tipo = (TipoCliente)Convert.ToInt32(clienteReader["TIPO_CLIENTE"]);
+
+            return cliente;
+        }
+
         public ClienteDAOSQLServer(SqlConnection conexao)
         {
             if(conexao == null)
@@ -66,11 +77,7 @@ namespace Avaliacao.Net.DataAccess
                 {
                     while(clientesReader.Read())
                     {
-                        ClienteVO cliente = new ClienteVO(Convert.ToInt32(clientesReader["ID_CLIENTE"]));
-                        cliente.Email = clientesReader["EMAIL_CLIENTE"].ToString();
-                        cliente.Nome = clientesReader["NOME_CLIENTE"].ToString();
-                        cliente.Telefone = clientesReader["TELEFONE_CLIENTE"].ToString();
-                        cliente.Tipo = (TipoCliente)Convert.ToInt32(clientesReader["TIPO_CLIENTE"]);
+                        ClienteVO cliente = this.CriaCliente(clientesReader);
                         clientes.Add(cliente);
                     }
                 }
@@ -98,6 +105,59 @@ namespace Avaliacao.Net.DataAccess
             }
 
             return clientes;
+        }
+
+        public ClienteVO BuscarCliente(int id)
+        {
+            ClienteVO cliente = new ClienteVO();
+
+            string selectTexto =
+                @"select 
+                ID_CLIENTE, EMAIL_CLIENTE, NOME_CLIENTE, TELEFONE_CLIENTE, TIPO_CLIENTE
+                from
+                CLIENTE
+                where
+                ID_CLIENTE = @id";
+
+            this.conexao.Open();
+
+            SqlCommand selectComando = new SqlCommand(selectTexto, this.conexao);
+            selectComando.Parameters.AddWithValue("@id", id);
+            selectComando.Transaction = this.conexao.BeginTransaction();
+            
+            SqlDataReader clienteReader = null;
+
+            try
+            {
+                clienteReader = selectComando.ExecuteReader();
+
+                clienteReader.Read();
+
+                cliente = this.CriaCliente(clienteReader);
+
+                if (clienteReader != null)
+                {
+                    clienteReader.Close();
+                }
+
+                selectComando.Transaction.Commit();
+            }
+            catch
+            {
+                // caso não tenha fechado no try
+                if (clienteReader != null)
+                {
+                    clienteReader.Close();
+                }
+
+                selectComando.Transaction.Rollback();
+            }
+            finally
+            {
+                this.conexao.Close();
+            }
+
+            return cliente;
         }
 
         public void AtualizarCliente(ClienteVO cliente)
