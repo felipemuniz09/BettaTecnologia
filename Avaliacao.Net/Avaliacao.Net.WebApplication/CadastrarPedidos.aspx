@@ -4,7 +4,7 @@
     <div class="form-group campo">
         <label class="control-label campo-label">Cliente:</label>
         <div class="campo-input"> 
-          <select class="form-control" id="clienteSel" runat="server">
+          <select class="form-control" id="clienteSel" onserverchange="clienteSel_ServerChange" runat="server">
           </select>
         </div>
     </div>
@@ -22,8 +22,13 @@
     </div>
     <div class="form-group" style="padding-top: 80px"> 
         <div class="campo-input">
-          <button type="submit" class="btn btn-default"  runat="server">Cadastrar</button>
+          <button class="btn btn-default"  runat="server" onserverclick="Cadastrar_ServerClick">Cadastrar</button>
         </div>
     </div>
-
+    <div class="confirmacao" style="visibility:hidden" id="msgConfirmacao" runat="server">
+          <div class="alert alert-success alert-dismissible" role="alert" >
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            Pedido cadastrado com sucesso.
+          </div>
+      </div>
 </asp:Content>

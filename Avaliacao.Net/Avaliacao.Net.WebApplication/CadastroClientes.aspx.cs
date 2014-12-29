@@ -38,11 +38,11 @@ namespace Avaliacao.Net.WebApplication
 
             this.gerenciadorClientes.CadastrarCliente(cliente);
 
-            nomeTxt.Value = string.Empty;
-            emailTxt.Value = string.Empty;
-            telefoneTxt.Value = string.Empty;
+            this.nomeTxt.Value = string.Empty;
+            this.emailTxt.Value = string.Empty;
+            this.telefoneTxt.Value = string.Empty;
 
-            msgConfirmacao.Attributes.Remove("style");
+            this.msgConfirmacao.Attributes.Remove("style");
         }
     }
 }
