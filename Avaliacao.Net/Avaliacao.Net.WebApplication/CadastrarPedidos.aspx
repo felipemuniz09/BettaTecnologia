@@ -32,13 +32,13 @@
           </div>
     </div>
 
-    <script>
+    <script type="text/javascript">
         function ValidarCadastroPedido()
         {
             // O script de validação precisa ficar aqui para ser possível encontrar os elementos usando getElementById("nomeTxt.ClientID") 
             // Como essa página é uma content page é necessário fazer isso para conseguir encontrar os elementos, pois o ID da content page 
             // é concatenado ao ID de cada elemento com runat=server 
-
+            // Se colocar a função em um arquivo .js não funciona
 
             // Valor
 
