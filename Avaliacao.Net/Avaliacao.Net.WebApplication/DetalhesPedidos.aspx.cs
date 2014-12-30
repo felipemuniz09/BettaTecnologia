@@ -20,6 +20,7 @@ namespace Avaliacao.Net.WebApplication
             IPedidoDAO pedidoDAO = new PedidoDAOSQLServer(ConexaoSingleton.Conexao);
             this.gerenciadorPedidos = new PedidoBLL(pedidoDAO);
 
+            // Não seta os campos no PostBack para não perder as alterações do usuário
             if (!Page.IsPostBack)
             {
                 int id = Convert.ToInt32(Request.QueryString["id"]);
@@ -44,6 +45,7 @@ namespace Avaliacao.Net.WebApplication
             this.valorTxt.Value = string.Empty;
             this.descricaoTxt.Value = string.Empty;
 
+            // Remove o atributo que estava escondendo a mensagem
             this.msgConfirmacao.Attributes.Remove("style");
         }
 
@@ -57,6 +59,7 @@ namespace Avaliacao.Net.WebApplication
 
             this.gerenciadorPedidos.EditarPedido(pedido);
 
+            // Remove o atributo que estava escondendo a mensagem
             this.msgConfirmacaoSalvar.Attributes.Remove("style");
         }
     }

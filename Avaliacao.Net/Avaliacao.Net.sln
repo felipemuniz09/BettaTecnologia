@@ -11,10 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avaliacao.Net.BusinessLogic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avaliacao.Net.WebApplication", "Avaliacao.Net.WebApplication\Avaliacao.Net.WebApplication.csproj", "{4428816D-D7E3-4562-A332-DB26491E9381}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BancoDadosSQLServer", "..\..\..\Betta Tecnologia\Solucao\BD\BancoDadosSQLServer\BancoDadosSQLServer\BancoDadosSQLServer.csproj", "{949943DF-B38D-4774-8FFE-749090F385C4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceTeste", "InterfaceTeste\InterfaceTeste.csproj", "{8A846850-82B3-41D9-8E44-6D3C8BBDA66D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,14 +33,6 @@ Global
 		{4428816D-D7E3-4562-A332-DB26491E9381}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4428816D-D7E3-4562-A332-DB26491E9381}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4428816D-D7E3-4562-A332-DB26491E9381}.Release|Any CPU.Build.0 = Release|Any CPU
-		{949943DF-B38D-4774-8FFE-749090F385C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{949943DF-B38D-4774-8FFE-749090F385C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{949943DF-B38D-4774-8FFE-749090F385C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{949943DF-B38D-4774-8FFE-749090F385C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A846850-82B3-41D9-8E44-6D3C8BBDA66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A846850-82B3-41D9-8E44-6D3C8BBDA66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A846850-82B3-41D9-8E44-6D3C8BBDA66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A846850-82B3-41D9-8E44-6D3C8BBDA66D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

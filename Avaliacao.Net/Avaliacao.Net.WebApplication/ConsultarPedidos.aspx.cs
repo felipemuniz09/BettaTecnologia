@@ -46,6 +46,7 @@ namespace Avaliacao.Net.WebApplication
 
             this.pedidos = this.gerenciadorPedidos.BuscarPedidos(this.nomeClienteTxt.Value, dtInicial, dtFinal);
 
+            // Redireciona para a página ExibirPedidos
             this.Server.Transfer("ExibirPedidos.aspx");
         }
     }

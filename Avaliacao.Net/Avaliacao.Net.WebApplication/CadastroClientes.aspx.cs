@@ -27,6 +27,7 @@ namespace Avaliacao.Net.WebApplication
             cliente.Nome = nomeTxt.Value;
             cliente.Email = emailTxt.Value;
             cliente.Telefone = telefoneTxt.Value;
+
             if(clientePFRadioBtn.Checked)
             {
                 cliente.Tipo = TipoCliente.Fisica;
@@ -42,6 +43,7 @@ namespace Avaliacao.Net.WebApplication
             this.emailTxt.Value = string.Empty;
             this.telefoneTxt.Value = string.Empty;
 
+            // Remove atributo que estava escondendo a mensagem
             this.msgConfirmacao.Attributes.Remove("style");
         }
     }

@@ -13,6 +13,8 @@ namespace Avaliacao.Net.WebApplication
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // PreviousPage é diferente de nulo apenas na primeira vez que a página é carregada, 
+            // por isso a lista de pedidos fica armazenada na Session
             if(PreviousPage != null)
             {
                 this.Session["pedidos"] = PreviousPage.Pedidos;

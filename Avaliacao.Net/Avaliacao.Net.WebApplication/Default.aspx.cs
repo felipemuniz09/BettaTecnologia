@@ -12,17 +12,8 @@ namespace Avaliacao.Net.WebApplication
 {
     public partial class _Default : Page
     {
-        private ClienteBLL gerenciadorClientes;
-        
         protected void Page_Load(object sender, EventArgs e)
         {
-            IClienteDAO clienteDAO = new ClienteDAOSQLServer(ConexaoSingleton.Conexao);
-            this.gerenciadorClientes = new ClienteBLL(clienteDAO);
-        }
-
-        protected void selecionarClientesBtn_Click(object sender, EventArgs e)
-        {
-            this.gerenciadorClientes.BuscarClientes(string.Empty, null);
         }
     }
 }

@@ -18,13 +18,13 @@ namespace Avaliacao.Net.WebApplication
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             IClienteDAO clienteDAO = new ClienteDAOSQLServer(ConexaoSingleton.Conexao);
             this.gerenciadorClientes = new ClienteBLL(clienteDAO);
 
             IPedidoDAO pedidoDAO = new PedidoDAOSQLServer(ConexaoSingleton.Conexao);
             this.gerenciadorPedidos = new PedidoBLL(pedidoDAO);
             
+            // A lista não deve ser recarregada no PostBack para não perder a seleção do usuário
             if (!Page.IsPostBack)
             {
                 this.clienteSel.DataSource = this.gerenciadorClientes.BuscarClientes();
@@ -47,12 +47,8 @@ namespace Avaliacao.Net.WebApplication
             this.descricaoTxt.Value = string.Empty;
             this.valorTxt.Value = string.Empty;
 
+            // Remove o atributo que estava escondendo a mensagem
             this.msgConfirmacao.Attributes.Remove("style");
-        }
-
-        protected void clienteSel_ServerChange(object sender, EventArgs e)
-        {
-
         }
     }
 }

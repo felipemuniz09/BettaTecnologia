@@ -20,6 +20,7 @@ namespace Avaliacao.Net.WebApplication
             IClienteDAO clienteDAO = new ClienteDAOSQLServer(ConexaoSingleton.Conexao);
             this.gerenciadorClientes = new ClienteBLL(clienteDAO);
 
+            // Não seta os campos no PostBack para não perder as alterações do usuário
             if (!Page.IsPostBack)
             {
                 int id = Convert.ToInt32(Request.QueryString["id"]);
@@ -53,6 +54,7 @@ namespace Avaliacao.Net.WebApplication
             this.emailTxt.Value = string.Empty;
             this.telefoneTxt.Value = string.Empty;
 
+            // Remove o atributo que estava escondendo a mensagem
             this.msgConfirmacao.Attributes.Remove("style");
         }
 
@@ -64,6 +66,7 @@ namespace Avaliacao.Net.WebApplication
             cliente.Nome = nomeTxt.Value;
             cliente.Email = emailTxt.Value;
             cliente.Telefone = telefoneTxt.Value;
+
             if (clientePFRadioBtn.Checked)
             {
                 cliente.Tipo = TipoCliente.Fisica;
@@ -75,6 +78,7 @@ namespace Avaliacao.Net.WebApplication
 
             this.gerenciadorClientes.EditarCliente(cliente);
 
+            // Remove o atributo que estava escondendo a mensagem
             this.msgConfirmacaoSalvar.Attributes.Remove("style");
         }
     }

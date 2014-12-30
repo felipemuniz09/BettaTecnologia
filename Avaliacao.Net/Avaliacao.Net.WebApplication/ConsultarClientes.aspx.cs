@@ -51,6 +51,7 @@ namespace Avaliacao.Net.WebApplication
 
             this.clientes = this.gerenciadorClientes.BuscarClientes(this.nomeCliente.Value, tipoCliente);
 
+            // Redireciona para a página ExibirClientes.aspx
             this.Server.Transfer("ExibirClientes.aspx");
         }
     }
