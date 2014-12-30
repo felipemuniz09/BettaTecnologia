@@ -32,6 +32,21 @@ namespace Avaliacao.Net.Entities
             }
         }
 
+        public string NomeCliente
+        {
+            get
+            {
+                if (this.cliente != null)
+                {
+                    return this.cliente.Nome;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
+
         public DateTime Data
         {
             get
@@ -50,6 +65,13 @@ namespace Avaliacao.Net.Entities
         public PedidoVO(ClienteVO cliente)
         {
             this.cliente = cliente;
+        }
+
+        public PedidoVO() { }
+
+        public PedidoVO(int id)
+        {
+            this.id = id;
         }
     }
 }

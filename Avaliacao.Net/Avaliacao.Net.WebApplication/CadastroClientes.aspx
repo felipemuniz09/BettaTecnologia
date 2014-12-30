@@ -5,19 +5,19 @@
       <div class="form-group campo">
         <label class="control-label campo-label">Nome:</label>
         <div class="campo-input"> 
-          <input type="text" class="form-control" id="nomeTxt" runat="server">
+          <input type="text" class="form-control" name="nomeTxt" id="nomeTxt" runat="server">
         </div>
       </div>
       <div class="form-group campo">
         <label class="control-label campo-label">Email:</label>
         <div class="campo-input"> 
-          <input type="email" class="form-control" id="emailTxt" runat="server">
+          <input type="text" class="form-control" id="emailTxt" runat="server">
         </div>
       </div>
       <div class="form-group campo">
         <label class="control-label campo-label">Telefone:</label>
         <div class="campo-input"> 
-          <input type="tel" class="form-control" id="telefoneTxt" runat="server">
+          <input type="text" class="form-control" id="telefoneTxt" runat="server" >
         </div>
       </div>
       <div class="form-group campo">
@@ -33,7 +33,7 @@
       </div>
       <div class="form-group" style="padding-top: 25px"> 
         <div class="campo-input">
-          <button type="submit" class="btn btn-default" runat="server" onserverclick="Cadastrar_ServerClick">Cadastrar</button>
+          <asp:Button class="btn btn-default" runat="server" ClientIDMode="Static" OnClientClick="return validarCadastroClientes();" OnClick="Cadastrar_ServerClick" Text="Cadastrar"></asp:Button>
         </div>
       </div>
       <div class="confirmacao" style="visibility:hidden" id="msgConfirmacao" runat="server">
@@ -43,4 +43,61 @@
           </div>
       </div>
     </div>
+
+    <script>
+        function validarCadastroClientes() {
+            
+            // O script de validação precisa ficar aqui para ser possível encontrar os elementos usando getElementById("nomeTxt.ClientID") 
+            // Como essa página é uma content page é necessário fazer isso para conseguir encontrar os elementos, pois o ID da content page 
+            // é concatenado ao ID de cada elemento com runat=server 
+    
+
+
+            // Nome
+
+            var nome = document.getElementById("<%=nomeTxt.ClientID%>").value;
+            if (nome == '' || nome == null) {
+                window.alert("Preencha o campo Nome");
+                return false;
+            }
+
+            // Email
+
+            var email = document.getElementById("<%=emailTxt.ClientID%>").value;
+
+            if (email == '' || email == null) {
+                window.alert("Preencha o campo Email");
+                return false;
+            }
+            
+            var atpos = email.indexOf("@");
+            
+            var dotpos = email.lastIndexOf(".");
+           
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
+                window.alert("Email inválido");
+                return false;
+            }
+           
+            // Telefone válido
+
+            var telefone = document.getElementById("<%=telefoneTxt.ClientID%>").value;
+
+            
+
+            if (telefone == '' || telefone == null) {
+                window.alert("Preencha o campo Telefone");
+                return false;
+            }
+
+            var phoneno = /^\(?([0-9]{2})\)?[ ]?([0-9]{4})[-]?([0-9]{4})$/;
+
+            if (!(telefone.match(phoneno))) {
+                window.alert("Preencha o telefone no formato 99 9999-9999");
+                return false;
+            }
+            
+            return true;
+        }
+    </script>
 </asp:Content>

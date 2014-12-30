@@ -10,52 +10,43 @@
 namespace Avaliacao.Net.WebApplication {
     
     
-    public partial class CadastroClientes {
+    public partial class DetalhesPedidos {
         
         /// <summary>
-        /// nomeTxt control.
+        /// clientTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nomeTxt;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText clientTxt;
         
         /// <summary>
-        /// emailTxt control.
+        /// dataTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText emailTxt;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText dataTxt;
         
         /// <summary>
-        /// telefoneTxt control.
+        /// valorTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText telefoneTxt;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText valorTxt;
         
         /// <summary>
-        /// clientePFRadioBtn control.
+        /// descricaoTxt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton clientePFRadioBtn;
-        
-        /// <summary>
-        /// clientePJRadioBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton clientePJRadioBtn;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea descricaoTxt;
         
         /// <summary>
         /// msgConfirmacao control.
@@ -65,5 +56,14 @@ namespace Avaliacao.Net.WebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgConfirmacao;
+        
+        /// <summary>
+        /// msgConfirmacaoSalvar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl msgConfirmacaoSalvar;
     }
 }

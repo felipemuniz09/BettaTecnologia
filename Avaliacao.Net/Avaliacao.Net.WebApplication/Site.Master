@@ -71,7 +71,7 @@
     </script>
 </head>
 <body>
-    <form runat="server">
+    <form id="myForm" runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -146,12 +146,10 @@
     </nav>
         </div>
        
-        <div class="container body-content" style="position:absolute; top:200px; width:100%; float:left">
+        <div class="container body-content" style="position:absolute; top:200px; width:100%; float:left;">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
         </div>
-
     </form>
 </body>
 </html>

@@ -22,9 +22,14 @@ namespace Avaliacao.Net.BusinessLogic
             this.pedidoDAO = pedidoDAO;
         }
 
-        public List<PedidoVO> BuscarPedidos(int? idCliente, DateTime? dtInicialPedido, DateTime? dtFinalPedido)
+        public List<PedidoVO> BuscarPedidos(string nomeCliente, DateTime? dtInicialPedido, DateTime? dtFinalPedido)
         {
-            return this.pedidoDAO.BuscarPedidos(idCliente, dtInicialPedido, dtFinalPedido);
+            return this.pedidoDAO.BuscarPedidos(nomeCliente, dtInicialPedido, dtFinalPedido);
+        }
+
+        public PedidoVO BuscarPedido(int id)
+        {
+            return this.pedidoDAO.BuscarPedido(id);
         }
 
         public void EditarPedido(PedidoVO pedido)

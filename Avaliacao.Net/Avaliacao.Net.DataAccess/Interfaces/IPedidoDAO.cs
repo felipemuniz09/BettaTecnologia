@@ -9,7 +9,8 @@ namespace Avaliacao.Net.DataAccess.Interfaces
 {
     public interface IPedidoDAO
     {
-        List<PedidoVO> BuscarPedidos(int? idCliente, DateTime? dtInicialPedido, DateTime? dtFinalPedido);
+        List<PedidoVO> BuscarPedidos(string nomeCliente, DateTime? dtInicialPedido, DateTime? dtFinalPedido);
+        PedidoVO BuscarPedido(int id);
         void AtualizarPedido(PedidoVO pedido);
         void RemoverPedido(int idPedido);
         void InserirPedido(PedidoVO pedido);

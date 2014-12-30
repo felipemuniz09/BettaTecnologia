@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Detalhes.aspx.cs" Inherits="Avaliacao.Net.WebApplication.Detalhes" %>
+﻿<%@ Page Title="Detalhes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Detalhes.aspx.cs" Inherits="Avaliacao.Net.WebApplication.Detalhes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <div>
       <div class="form-group campo">

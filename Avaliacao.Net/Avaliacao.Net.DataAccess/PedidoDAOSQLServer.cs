@@ -13,6 +13,19 @@ namespace Avaliacao.Net.DataAccess
     {
         private SqlConnection conexao;
 
+        private PedidoVO CriaPedido(SqlDataReader pedidoReader)
+        {
+            int idPedido = Convert.ToInt32(pedidoReader["ID_PEDIDO"]);
+            DateTime dtPedido = Convert.ToDateTime(pedidoReader["DATA_PEDIDO"]);
+            ClienteVO clientePedido = new ClienteVO(Convert.ToInt32(pedidoReader["ID_CLIENTE"]));
+            clientePedido.Nome = pedidoReader["NOME_CLIENTE"].ToString();
+            PedidoVO pedido = new PedidoVO(idPedido, dtPedido, clientePedido);
+            pedido.Descricao = pedidoReader["DESCRICAO_PEDIDO"].ToString();
+            pedido.Valor = Convert.ToDecimal(pedidoReader["VALOR_PEDIDO"]);
+
+            return pedido;
+        }
+
         public PedidoDAOSQLServer(SqlConnection conexao)
         {
             if(conexao == null)
@@ -23,16 +36,16 @@ namespace Avaliacao.Net.DataAccess
             this.conexao = conexao;
         }
 
-        public List<PedidoVO> BuscarPedidos(int? idCliente, DateTime? dtInicialPedido, DateTime? dtFinalPedido)
+        public List<PedidoVO> BuscarPedidos(string nomeCliente, DateTime? dtInicialPedido, DateTime? dtFinalPedido)
         {
             string selectTexto =
                 @"select
-                    ID_PEDIDO, ID_CLIENTE, DATA_PEDIDO, DESCRICAO_PEDIDO, VALOR_PEDIDO
+                    ID_PEDIDO, P.ID_CLIENTE as ID_CLIENTE, DATA_PEDIDO, DESCRICAO_PEDIDO, VALOR_PEDIDO, NOME_CLIENTE
                   from
-                    PEDIDO
+                    PEDIDO P join CLIENTE C on P.ID_CLIENTE = C.ID_CLIENTE
                   ";
 
-            if ((idCliente != null) || (dtInicialPedido != null) || (dtInicialPedido != null))
+            if ((!string.IsNullOrEmpty(nomeCliente)) || (dtInicialPedido != null) || (dtInicialPedido != null))
             {
                 selectTexto += 
                     @"where
@@ -41,10 +54,10 @@ namespace Avaliacao.Net.DataAccess
 
             List<SqlParameter> parametros = new List<SqlParameter>();
 
-            if(idCliente != null)
+            if (!string.IsNullOrEmpty(nomeCliente))
             {
-                selectTexto += "ID_CLIENTE = @idCliente ";
-                parametros.Add(new SqlParameter("@idCliente", idCliente.Value));
+                selectTexto += "C.NOME_CLIENTE = @nomeCliente ";
+                parametros.Add(new SqlParameter("@nomeCliente", nomeCliente));
             }
 
             if (dtInicialPedido.HasValue)
@@ -52,7 +65,7 @@ namespace Avaliacao.Net.DataAccess
                 // usando funções para pegar apenas a data (desprezar a hora)
                 // e garantir que ambas datas estão no mesmo formato
                 selectTexto += 
-                    @"and CONVERT(NVARCHAR(10), CAST(CAST(DATA_PEDIDO AS DATE) AS DATETIME), 103) >= 
+                    @"and CONVERT(NVARCHAR(10), CAST(CAST(P.DATA_PEDIDO AS DATE) AS DATETIME), 103) >= 
                         CONVERT(NVARCHAR(10), CAST(CAST(@dtInicialPedido AS DATE) AS DATETIME), 103)";
                 parametros.Add(new SqlParameter("@dataPedido", dtInicialPedido.Value));
             }
@@ -62,7 +75,7 @@ namespace Avaliacao.Net.DataAccess
                 // usando funções para pegar apenas a data (desprezar a hora)
                 // e garantir que ambas datas estão no mesmo formato
                 selectTexto +=
-                    @"and CONVERT(NVARCHAR(10), CAST(CAST(DATA_PEDIDO AS DATE) AS DATETIME), 103) <= 
+                    @"and CONVERT(NVARCHAR(10), CAST(CAST(P.DATA_PEDIDO AS DATE) AS DATETIME), 103) <= 
                         CONVERT(NVARCHAR(10), CAST(CAST(@dtFinalPedido AS DATE) AS DATETIME), 103)";
                 parametros.Add(new SqlParameter("@dataPedido", dtFinalPedido.Value));
             }
@@ -81,13 +94,7 @@ namespace Avaliacao.Net.DataAccess
 
                 while(pedidosReader.Read())
                 {
-                    int idPedido = Convert.ToInt32(pedidosReader["ID_PEDIDO"]);
-                    DateTime dtPedido = Convert.ToDateTime(pedidosReader["DATA_PEDIDO"]);
-                    ClienteVO clientePedido = new ClienteVO(Convert.ToInt32(pedidosReader["ID_CLIENTE"]));
-                    
-                    PedidoVO pedido = new PedidoVO(idPedido, dtPedido, clientePedido);
-                    pedido.Descricao = pedidosReader["DESCRICAO_PEDIDO"].ToString();
-                    pedido.Valor = Convert.ToDecimal(pedidosReader["VALOR_PEDIDO"]);
+                    PedidoVO pedido = this.CriaPedido(pedidosReader);
 
                     pedidos.Add(pedido);
                 }
@@ -211,6 +218,58 @@ namespace Avaliacao.Net.DataAccess
             {
                 this.conexao.Close();
             }
+        }
+
+        public PedidoVO BuscarPedido(int id)
+        {
+            string selectTexto =
+                @"select
+                    ID_PEDIDO, P.ID_CLIENTE as ID_CLIENTE, DATA_PEDIDO, DESCRICAO_PEDIDO, VALOR_PEDIDO, NOME_CLIENTE
+                  from
+                    PEDIDO P join CLIENTE C on P.ID_CLIENTE = C.ID_CLIENTE
+                  where
+                    ID_PEDIDO = @idPedido";
+
+            this.conexao.Open();
+
+            SqlCommand selectComando = new SqlCommand(selectTexto, this.conexao);
+            selectComando.Parameters.AddWithValue("@idPedido", id);
+            selectComando.Transaction = this.conexao.BeginTransaction();
+
+            SqlDataReader pedidoReader = null;
+            PedidoVO pedido = new PedidoVO();
+
+            try
+            {
+                pedidoReader = selectComando.ExecuteReader();
+
+                pedidoReader.Read();
+
+                pedido = this.CriaPedido(pedidoReader);
+
+                if (pedidoReader != null)
+                {
+                    pedidoReader.Close();
+                }
+
+                selectComando.Transaction.Commit();
+            }
+            catch
+            {
+                // caso não tenha fechado no try
+                if (pedidoReader != null)
+                {
+                    pedidoReader.Close();
+                }
+
+                selectComando.Transaction.Rollback();
+            }
+            finally
+            {
+                this.conexao.Close();
+            }
+
+            return pedido;
         }
     }
 }

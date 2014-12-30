@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ExibirClientes.aspx.cs" Inherits="Avaliacao.Net.WebApplication.ExibirClientes" EnableEventValidation="false" %>
+﻿<%@ Page Title="Clientes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ExibirClientes.aspx.cs" Inherits="Avaliacao.Net.WebApplication.ExibirClientes" EnableEventValidation="false" %>
 <%@ PreviousPageType VirtualPath="~/ConsultarClientes.aspx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     

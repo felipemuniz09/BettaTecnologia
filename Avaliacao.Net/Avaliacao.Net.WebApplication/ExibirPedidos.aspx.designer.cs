@@ -10,24 +10,27 @@
 namespace Avaliacao.Net.WebApplication {
     
     
-    public partial class SiteMaster {
+    public partial class ExibirPedidos {
         
         /// <summary>
-        /// myForm control.
+        /// pedidosTb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm myForm;
+        protected global::System.Web.UI.HtmlControls.HtmlTable pedidosTb;
         
         /// <summary>
-        /// MainContent control.
+        /// PreviousPage property.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Auto-generated property.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        public new Avaliacao.Net.WebApplication.ConsultarPedidos PreviousPage {
+            get {
+                return ((Avaliacao.Net.WebApplication.ConsultarPedidos)(base.PreviousPage));
+            }
+        }
     }
 }

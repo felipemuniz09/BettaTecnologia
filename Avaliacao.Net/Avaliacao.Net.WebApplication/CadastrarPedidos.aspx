@@ -22,7 +22,7 @@
     </div>
     <div class="form-group" style="padding-top: 80px"> 
         <div class="campo-input">
-          <button class="btn btn-default"  runat="server" onserverclick="Cadastrar_ServerClick">Cadastrar</button>
+          <asp:Button class="btn btn-default"  runat="server" OnClientClick="return ValidarCadastroPedido()" onClick="Cadastrar_ServerClick" Text="Cadastrar"></asp:Button>
         </div>
     </div>
     <div class="confirmacao" style="visibility:hidden" id="msgConfirmacao" runat="server">
@@ -30,5 +30,42 @@
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             Pedido cadastrado com sucesso.
           </div>
-      </div>
+    </div>
+
+    <script>
+        function ValidarCadastroPedido()
+        {
+            // O script de validação precisa ficar aqui para ser possível encontrar os elementos usando getElementById("nomeTxt.ClientID") 
+            // Como essa página é uma content page é necessário fazer isso para conseguir encontrar os elementos, pois o ID da content page 
+            // é concatenado ao ID de cada elemento com runat=server 
+
+
+            // Valor
+
+            var valor = document.getElementById("<%=valorTxt.ClientID%>").value;
+
+            if (valor == '' || valor == null) {
+                window.alert("Preencha o campo Valor");
+                return false;
+            }
+
+            var padrao = /^\d+(?:\,\d{0,2})$/;
+
+            if (!(valor.match(padrao))) {
+                window.alert("Preencha o valor no formato 99999,99");
+                return false;
+            }
+
+            // Descrição
+
+            var descricao = document.getElementById("<%=descricaoTxt.ClientID%>").value;
+
+            if (descricao == '' || descricao == null) {
+                window.alert("Preencha o campo Descricao");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </asp:Content>

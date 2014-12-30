@@ -2,3 +2,4 @@ C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.Enti
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.Entities\bin\Debug\Avaliacao.Net.Entities.pdb
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.Entities\obj\Debug\Avaliacao.Net.Entities.dll
 C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.Entities\obj\Debug\Avaliacao.Net.Entities.pdb
+C:\Users\muniz\Documents\GitHub\BettaTecnologia\Avaliacao.Net\Avaliacao.Net.Entities\obj\Debug\Avaliacao.Net.Entities.csprojResolveAssemblyReference.cache
