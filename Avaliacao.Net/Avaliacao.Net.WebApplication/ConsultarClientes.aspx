@@ -4,7 +4,7 @@
     <div class="form-group campo">
         <label class="control-label campo-label">Nome:</label>
         <div class="campo-input"> 
-          <input type="text" class="form-control" id="nomeCliente" runat="server">
+          <input type="text" class="form-control" id="nomeCliente" runat="server" maxlength="100">
         </div>
     </div>
     <div class="form-group campo">

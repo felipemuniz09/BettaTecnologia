@@ -22,12 +22,12 @@
     <div class="form-group campo">
         <label class="control-label campo-label">Descrição:</label>
         <div class="campo-input"> 
-          <textarea rows="3" cols="50" class="form-control" id="descricaoTxt" runat="server"></textarea>
+          <textarea rows="3" cols="50" class="form-control" id="descricaoTxt" runat="server" maxlength="300"></textarea>
         </div>
     </div>
     <div class="btn-group col-md-offset-2" style="padding-top: 25px"> 
           <asp:Button type="submit" class="btn btn-default" runat="server" OnClientClick="return ValidarEdicaoPedido();" onClick="Salvar_ServerClick" Text="Salvar"></asp:Button>
-          <button class="btn btn-default"  runat="server" onserverclick="Remover_ServerClick">Remover</button>
+          <asp:Button class="btn btn-default"  runat="server" OnClientClick="return Confirmar();" OnClick="Remover_ServerClick" Text="Remover"></asp:Button>
     </div>
     <div class="confirmacao" style="display:none" id="msgConfirmacao" runat="server">
           <div class="alert alert-success alert-dismissible" role="alert" >
@@ -75,6 +75,10 @@
             }
 
             return true;
+        }
+
+        function Confirmar() {
+            return confirm("Deseja mesmo remover o pedido?");
         }
     </script>
 </asp:Content>

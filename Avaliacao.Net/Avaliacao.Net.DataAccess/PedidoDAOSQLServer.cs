@@ -45,7 +45,7 @@ namespace Avaliacao.Net.DataAccess
                     PEDIDO P join CLIENTE C on P.ID_CLIENTE = C.ID_CLIENTE
                   ";
 
-            if ((!string.IsNullOrEmpty(nomeCliente)) || (dtInicialPedido != null) || (dtInicialPedido != null))
+            if ((!string.IsNullOrEmpty(nomeCliente)) || (dtInicialPedido != null) || (dtFinalPedido != null))
             {
                 selectTexto += 
                     @"where
@@ -54,30 +54,50 @@ namespace Avaliacao.Net.DataAccess
 
             List<SqlParameter> parametros = new List<SqlParameter>();
 
+            bool jaTemWhere = false;
+
             if (!string.IsNullOrEmpty(nomeCliente))
             {
-                selectTexto += "C.NOME_CLIENTE = @nomeCliente ";
+                nomeCliente = string.Format("{0}{1}{0}", "%", nomeCliente);
+                selectTexto += "C.NOME_CLIENTE LIKE @nomeCliente ";
                 parametros.Add(new SqlParameter("@nomeCliente", nomeCliente));
+                jaTemWhere = true;
             }
 
             if (dtInicialPedido.HasValue)
             {
+                if(jaTemWhere)
+                {
+                    selectTexto += "and ";
+                }
+                else
+                {
+                    jaTemWhere = true;
+                }
                 // usando funções para pegar apenas a data (desprezar a hora)
                 // e garantir que ambas datas estão no mesmo formato
-                selectTexto += 
-                    @"and CONVERT(NVARCHAR(10), CAST(CAST(P.DATA_PEDIDO AS DATE) AS DATETIME), 103) >= 
-                        CONVERT(NVARCHAR(10), CAST(CAST(@dtInicialPedido AS DATE) AS DATETIME), 103)";
-                parametros.Add(new SqlParameter("@dataPedido", dtInicialPedido.Value));
+                selectTexto +=
+                    @"CONVERT(DATETIME, CAST(P.DATA_PEDIDO AS DATE), 103) >= 
+                        CONVERT(DATETIME, CAST(@dtInicialPedido AS DATE), 103)";
+                parametros.Add(new SqlParameter("@dtInicialPedido", dtInicialPedido.Value));
             }
 
             if (dtFinalPedido.HasValue)
             {
+                if (jaTemWhere)
+                {
+                    selectTexto += "and ";
+                }
+                else
+                {
+                    jaTemWhere = true;
+                }
                 // usando funções para pegar apenas a data (desprezar a hora)
                 // e garantir que ambas datas estão no mesmo formato
                 selectTexto +=
-                    @"and CONVERT(NVARCHAR(10), CAST(CAST(P.DATA_PEDIDO AS DATE) AS DATETIME), 103) <= 
-                        CONVERT(NVARCHAR(10), CAST(CAST(@dtFinalPedido AS DATE) AS DATETIME), 103)";
-                parametros.Add(new SqlParameter("@dataPedido", dtFinalPedido.Value));
+                    @" CONVERT(DATETIME, CAST(P.DATA_PEDIDO AS DATE), 103) <= 
+                        CONVERT(DATETIME, CAST(@dtFinalPedido AS DATE), 103)";
+                parametros.Add(new SqlParameter("@dtFinalPedido", dtFinalPedido.Value));
             }
 
             SqlCommand selectComando = new SqlCommand(selectTexto, this.conexao);

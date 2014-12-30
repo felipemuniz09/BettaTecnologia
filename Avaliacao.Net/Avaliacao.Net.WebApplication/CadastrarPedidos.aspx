@@ -4,7 +4,7 @@
     <div class="form-group campo">
         <label class="control-label campo-label">Cliente:</label>
         <div class="campo-input"> 
-          <select class="form-control" id="clienteSel" onserverchange="clienteSel_ServerChange" runat="server">
+          <select class="form-control" id="clienteSel" runat="server">
           </select>
         </div>
     </div>
@@ -17,7 +17,7 @@
     <div class="form-group campo">
         <label class="control-label campo-label">Descrição:</label>
         <div class="campo-input"> 
-          <textarea rows="3" cols="50" class="form-control" id="descricaoTxt" runat="server"></textarea>
+          <textarea rows="3" cols="50" class="form-control" id="descricaoTxt" runat="server" maxlength="300"></textarea>
         </div>
     </div>
     <div class="form-group" style="padding-top: 80px"> 

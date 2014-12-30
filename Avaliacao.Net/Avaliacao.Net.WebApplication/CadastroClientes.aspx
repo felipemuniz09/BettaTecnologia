@@ -5,19 +5,19 @@
       <div class="form-group campo">
         <label class="control-label campo-label">Nome:</label>
         <div class="campo-input"> 
-          <input type="text" class="form-control" name="nomeTxt" id="nomeTxt" runat="server">
+          <input type="text" class="form-control" name="nomeTxt" id="nomeTxt" runat="server" maxlength="100">
         </div>
       </div>
       <div class="form-group campo">
         <label class="control-label campo-label">Email:</label>
         <div class="campo-input"> 
-          <input type="text" class="form-control" id="emailTxt" runat="server">
+          <input type="text" class="form-control" id="emailTxt" runat="server" maxlength="100">
         </div>
       </div>
       <div class="form-group campo">
         <label class="control-label campo-label">Telefone:</label>
         <div class="campo-input"> 
-          <input type="text" class="form-control" id="telefoneTxt" runat="server" >
+          <input type="text" class="form-control" id="telefoneTxt" runat="server" maxlength="20">
         </div>
       </div>
       <div class="form-group campo">

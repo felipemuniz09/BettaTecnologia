@@ -4,19 +4,19 @@
       <div class="form-group campo">
         <label class="control-label campo-label">Nome:</label>
         <div class="campo-input"> 
-          <input type="text" class="form-control" id="nomeTxt" runat="server">
+          <input type="text" class="form-control" id="nomeTxt" runat="server" maxlength="100">
         </div>
       </div>
       <div class="form-group campo">
         <label class="control-label campo-label">Email:</label>
         <div class="campo-input"> 
-          <input type="email" class="form-control" id="emailTxt" runat="server">
+          <input type="email" class="form-control" id="emailTxt" runat="server" maxlength="100">
         </div>
       </div>
       <div class="form-group campo">
         <label class="control-label campo-label">Telefone:</label>
         <div class="campo-input"> 
-          <input type="tel" class="form-control" id="telefoneTxt" runat="server">
+          <input type="tel" class="form-control" id="telefoneTxt" runat="server"  maxlength="20">
         </div>
       </div>
       <div class="form-group campo">
@@ -31,8 +31,8 @@
         </div>
       </div>
       <div class="btn-group" style="padding-top: 25px"> 
-          <asp:Button type="submit" class="btn btn-default" runat="server" OnClientClick="return ValidarEdicaoCliente();" onClick="Salvar_ServerClick" Text="Salvar"></asp:Button>
-          <button type="submit" class="btn btn-default" runat="server" onserverclick="Remover_ServerClick">Remover</button>
+          <asp:Button type="submit" class="btn btn-default" runat="server" OnClientClick="return ValidarEdicaoCliente();" OnClick="Salvar_ServerClick" Text="Salvar"></asp:Button>
+          <asp:Button type="submit" class="btn btn-default" runat="server" OnClientClick="return Confirmar();" OnClick="Remover_ServerClick" Text="Remover"></asp:Button>
       </div>
       <div class="confirmacao" style="display:none" id="msgConfirmacao" runat="server">
           <div class="alert alert-success alert-dismissible" role="alert" >
@@ -101,6 +101,11 @@
             }
 
             return true;
+        }
+
+        function Confirmar()
+        {
+            return confirm("Deseja mesmo remover o cliente?");
         }
     </script>
 </asp:Content>

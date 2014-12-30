@@ -53,7 +53,8 @@ namespace Avaliacao.Net.DataAccess
 
             if (!string.IsNullOrEmpty(nome))
             {
-                selectTexto += " and NOME_CLIENTE = @nomeCliente";
+                nome = string.Format("{0}{1}{0}", "%", nome);
+                selectTexto += " and NOME_CLIENTE LIKE @nomeCliente";
                 SqlParameter nomeClienteParam = new SqlParameter("@nomeCliente", nome);
                 parametros.Add(nomeClienteParam);
             }
